@@ -1,0 +1,27 @@
+﻿@model LoanCalculatorModel
+@{
+    ViewData["Title"] = "Loan Calculator";
+}
+<h1>Loan Calculator</h1>
+<form asp-action="Index" method="post">
+    <div asp-validation-summary="All"></div>
+    <div>
+        <label asp-for="Name">Name:</label>
+        <input asp-for="Name" />
+    </div>
+    <div>
+        <label asp-for="YearlySalary">Yearly Salary:</label>
+        <input asp-for="YearlySalary" />
+    </div>
+    <div>
+        <label asp-for="CreditCode">Credit Code:</label>
+        <input asp-for="CreditCode" />
+    </div>
+    <div>
+        <label>Loan Amount:</label>
+        <input value="@ViewBag.FV.ToString("C2")" readonly>
+    </div>
+    <button type="submit">Calculate</button>
+    <a asp-action="Index">Clear</a>
+</form>
+
